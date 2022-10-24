@@ -1,10 +1,10 @@
 services:
 - type: web
-  name: line-bot-python-flask
+  name: linebot-flask-xiaoai
   env: python
-  repo: https://github.com/line/line-bot-sdk-python.git
+  repo: https://github.com/helgesander02/linebot_flask.git
   buildCommand: cd examples/flask-echo;pip install gunicorn -r requirements.txt
-  startCommand: cd examples/flask-echo;gunicorn app:app
+  startCommand: cd examples/flask-echo;gunicorn hellofly:app
   plan: free
   autoDeploy: false
   envVars:
