@@ -9,4 +9,3 @@ Werkzeug
 
 PyHackMD
 lxml
-pyimgure
