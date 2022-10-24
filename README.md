@@ -13,3 +13,4 @@
 <p>https://developers.line.biz/en/</p>
 <h1>參考連結</h1>
 <p>https://ithelp.ithome.com.tw/articles/10283836</p>
+<p>https://lawrencechuang760223.medium.com/line-bot-%E8%81%8A%E5%A4%A9%E6%A9%9F%E5%99%A8%E4%BA%BA-ch3-%E4%BD%BF%E7%94%A8-python-%E6%89%93%E9%80%A0%E7%AC%AC%E4%B8%80%E5%80%8B-line-%E8%81%8A%E5%A4%A9%E6%A9%9F%E5%99%A8%E4%BA%BA-f8c9f250e578</p>
