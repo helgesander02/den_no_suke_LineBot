@@ -1,6 +1,6 @@
 services:
 - type: web
-  name: linebot-flask-xiaoai
+  name: linebot-flask-sander
   env: python
   repo: https://github.com/helgesander02/linebot_flask.git
   buildCommand: cd examples/flask-echo;pip install gunicorn -r requirements.txt
