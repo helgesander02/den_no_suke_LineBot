@@ -12,6 +12,8 @@ from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage,
 )
 
+import random
+
 app = Flask(__name__)
 
 line_bot_api = LineBotApi(keys['Chennel_access_token'])
@@ -39,10 +41,16 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    line_bot_api.reply_message(
-        event.reply_token,
-        TextSendMessage(text=event.message.text))
-
-
+    msg = str(event.message.text)
+    if msg == "隨機一組數字":
+        x = random.randrange(100)
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=str(x)))
+    else:
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=msg))
+        
 if __name__ == "__main__":
     app.run()
