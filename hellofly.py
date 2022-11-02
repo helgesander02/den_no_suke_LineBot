@@ -47,6 +47,16 @@ def handle_message(event):
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=str(x)))
+        
+    elif msg == "比價GO":
+        user_input = "RTX3060"
+        myScrape = Scrape()
+        output = myScrape.scrape(user_input)
+        
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=str(output)))
+        
     else:
         line_bot_api.reply_message(
             event.reply_token,
