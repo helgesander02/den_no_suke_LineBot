@@ -50,10 +50,15 @@ def handle_message(event):
             TextSendMessage(text=str(x)))
         
     elif msg == "比價GO":
-        user_input = "RTX3060"
+        goods_list = ["滑鼠", "鍵盤", "喇叭", "耳機", "麥克風", "電競椅", "辦公椅", "繪圖板", "office軟體",
+              "電競螢幕", "網路攝影機", "電腦機殼", "固態硬碟", "傳統硬碟", "顯示卡", "CPU", "主機板", "記憶體", "電源供應器",
+              "風扇", "外接硬碟", "電腦機殼", "UPS", "記憶卡", "隨身碟", "Nintendo Switch", "PlayStation 5", "Xbox", "手把控制器",
+              "羅技", "雷蛇", "HyperX", "路由器", "橋接器", "交換器", "光碟機", "華碩", "ROG", "曜越", "海盜船", "酷媽", "藍芽耳機",
+              "Turtle Beach", "鐵三角", "微星", "賽德斯", "威剛", "樹梅派", "Arduino", "ESP32"]
+        x = random.randrange(50)
+        user_input = goods_list[x]
         myScrape = scrape()
-        output = myScrape.scrape(user_input)
-        
+        output = myScrape.scrape(user_input)       
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=str(output)))
