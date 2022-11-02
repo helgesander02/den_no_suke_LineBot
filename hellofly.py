@@ -49,7 +49,7 @@ def handle_message(event):
             event.reply_token,
             TextSendMessage(text=str(x)))
         
-    elif msg == "比價GO":
+    elif msg == "熱銷商品比價GO":
         goods_list = ["滑鼠", "鍵盤", "喇叭", "耳機", "麥克風", "電競椅", "辦公椅", "繪圖板", "office軟體",
               "電競螢幕", "網路攝影機", "電腦機殼", "固態硬碟", "傳統硬碟", "顯示卡", "CPU", "主機板", "記憶體", "電源供應器",
               "風扇", "外接硬碟", "電腦機殼", "UPS", "記憶卡", "隨身碟", "Nintendo Switch", "PlayStation 5", "Xbox", "手把控制器",
