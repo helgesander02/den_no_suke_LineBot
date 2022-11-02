@@ -1,7 +1,7 @@
 from flask import Flask, request, abort
 
 from channel import keys
-import Scrape
+from Scrape import scrape
 
 from linebot import (
     LineBotApi, WebhookHandler
@@ -51,7 +51,7 @@ def handle_message(event):
         
     elif msg == "比價GO":
         user_input = "RTX3060"
-        myScrape = Scrape()
+        myScrape = scrape()
         output = myScrape.scrape(user_input)
         
         line_bot_api.reply_message(
