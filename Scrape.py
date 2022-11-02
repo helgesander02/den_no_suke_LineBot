@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 from fake_useragent import UserAgent
 
-class Scrape:
+class scrape:
     def __init__(self):
         self.headers = {
             "User-Agent": UserAgent().random
