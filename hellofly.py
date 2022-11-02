@@ -1,6 +1,7 @@
 from flask import Flask, request, abort
 
 from channel import keys
+import Scrape
 
 from linebot import (
     LineBotApi, WebhookHandler
