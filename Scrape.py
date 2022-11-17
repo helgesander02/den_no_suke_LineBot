@@ -10,7 +10,7 @@ class scrape:
         
     def scrape(self, search):
         result = requests.get(url=f"https://feebee.com.tw/s/?q={search}", headers=self.headers)
-        soup = BeautifulSoup(result.text, "lxml")
+        soup = BeautifulSoup(result.text)
         
         options = soup.findAll("h3",class_="large")
         price = soup.findAll("span",class_="price ellipsis xlarge")
@@ -23,3 +23,32 @@ class scrape:
             lst += f"購買連結: {link[i].get('href')}\n"
             
         return lst
+    
+    def news(self):
+        url = "https://technews.tw/"
+        result = requests.get(url=url, headers=self.headers)
+        soup = BeautifulSoup(result.text)
+        div = soup.find(id="content") 
+
+        news_target = { 
+          "title": "",
+          "img_url": "",
+          "role": "",
+          "news_url": ""
+        }
+
+        news_list=[]
+        for article in div.find_all("article")[:3]:
+            target = news_target
+            h1 = article.find("h1", class_="entry-title")
+            span = article.find_all("span", class_="body")[0]
+            div = article.find("div", class_="img")
+            div_a = div.find("a").get('href')
+            div_img = div.find("img").get('src')
+            target["title"] = h1.text
+            target["news_url"] = div_a
+            target["role"] = span.text 
+            target["img_url"] = div_img
+            news_list.append(target)
+        
+        return news_list
