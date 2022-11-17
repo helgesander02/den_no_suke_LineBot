@@ -38,15 +38,10 @@ class scrape:
                 "role": "",
                 "news_url": ""
                 }
-            h1 = article.find("h1", class_="entry-title")
-            span = article.find_all("span", class_="body")[0]
-            div = article.find("div", class_="img")
-            div_a = div.find("a").get('href')
-            div_img = div.find("img").get('src')
-            target["title"] = h1.text
-            target["news_url"] = div_a
-            target["role"] = span.text 
-            target["img_url"] = div_img
+            target["title"] = article.find("h1", class_="entry-title").text
+            target["role"] = article.find_all("span", class_="body")[0].text
+            target["news_url"] = article.find("div", class_="img").find("a").get('href')
+            target["img_url"] = article.find("div", class_="img").find("img").get('src')
             news_list.append(target)
         
         return news_list
