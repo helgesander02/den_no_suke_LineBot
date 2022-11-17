@@ -30,16 +30,14 @@ class scrape:
         soup = BeautifulSoup(result.text)
         div = soup.find(id="content") 
 
-        news_target = { 
-          "title": "",
-          "img_url": "",
-          "role": "",
-          "news_url": ""
-        }
-
         news_list=[]
         for article in div.find_all("article")[:3]:
-            target = news_target
+            target = { 
+                "title": "",
+                "img_url": "",
+                "role": "",
+                "news_url": ""
+                }
             h1 = article.find("h1", class_="entry-title")
             span = article.find_all("span", class_="body")[0]
             div = article.find("div", class_="img")
