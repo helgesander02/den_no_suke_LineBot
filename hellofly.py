@@ -9,9 +9,7 @@ from linebot import (
 from linebot.exceptions import (
     InvalidSignatureError
 )
-from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage,
-)
+from linebot.models import *
 
 import random
 
@@ -62,6 +60,51 @@ def handle_message(event):
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text=str(output)))
+    
+    elif msg == "最新新聞追追追":
+        myScrape = scrape()
+        news_list = myScrape.news()
+        carousel_template_message = TemplateSendMessage(
+             alt_text='最新新聞推薦',
+             template=CarouselTemplate(
+                 columns=[
+                     CarouselColumn(
+                         thumbnail_image_url=news_list[0]["img_url"],
+                         title=news_list[0]["title"],#title
+                         text=f'作者:{news_list[0]["role"]}',#作者
+                         actions=[
+                             URIAction(
+                                 label='馬上查看',
+                                 uri=news_list[0]["news_url"]#文章連結
+                             )
+                         ]
+                     ),
+                     CarouselColumn(
+                         thumbnail_image_url=news_list[1]["img_url"],
+                         title=news_list[1]["title"],
+                         text=f'作者:{news_list[1]["role"]}',
+                         actions=[
+                             URIAction(
+                                 label='馬上查看',
+                                 uri=news_list[1]["news_url"]
+                             )
+                         ]
+                     ),
+                     CarouselColumn(
+                         thumbnail_image_url=news_list[2]["img_url"],
+                         title=news_list[2]["title"],
+                         text=f'作者:{news_list[2]["role"]}',
+                         actions=[
+                             URIAction(
+                                 label='馬上查看',
+                                 uri=news_list[2]["news_url"]
+                             )
+                         ]
+                     )
+                 ]
+             )
+        )
+        line_bot_api.reply_message(event.reply_token, carousel_template_message)
         
     else:
         line_bot_api.reply_message(
