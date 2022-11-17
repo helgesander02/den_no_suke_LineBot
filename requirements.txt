@@ -1,15 +1,5 @@
 line-bot-sdk
 flask
-gunicorn
-click
-itsdangerous
-Jinja2
-MarkupSafe
-Werkzeug
-
 fake_useragent
 requests
 beautifulsoup4
-
-PyHackMD
-lxml
