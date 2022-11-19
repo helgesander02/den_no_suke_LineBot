@@ -1,6 +1,5 @@
 from flask import Flask, request, abort
 
-#from channel import keys
 import os
 from Scrape import scrape
 
