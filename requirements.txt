@@ -1,5 +1,4 @@
 line-bot-sdk
 flask
-fake_useragent
 requests
 beautifulsoup4
