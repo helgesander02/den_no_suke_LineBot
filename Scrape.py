@@ -1,11 +1,10 @@
 import requests
 from bs4 import BeautifulSoup
-from fake_useragent import UserAgent
 
 class scrape:
     def __init__(self):
         self.headers = {
-            "User-Agent": UserAgent().random
+            "User-Agent": "Mozilla/5.0 (X11; Linux aarch64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.188 Safari/537.36 CrKey/1.54.250320"
           }
         
     def scrape(self, search):
