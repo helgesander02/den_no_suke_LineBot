@@ -1,6 +1,7 @@
 from flask import Flask, request, abort
 
-from channel import keys
+#from channel import keys
+import os
 from Scrape import scrape
 
 from linebot import (
@@ -15,8 +16,11 @@ import random
 
 app = Flask(__name__)
 
-line_bot_api = LineBotApi(keys['Chennel_access_token'])
-handler = WebhookHandler(keys['Channel_secret'])
+#line_bot_api = LineBotApi(keys['Chennel_access_token'])
+#handler = WebhookHandler(keys['Channel_secret'])
+line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
+handler = WebhookHandler(os.getenv('LINE_CHANNEL_SECRET'))
+
 
 
 @app.route("/callback", methods=['POST'])
