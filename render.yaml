@@ -2,7 +2,7 @@ services:
 - type: web
   name: linebot-flask-sander
   env: python
-  repo: https://github.com/helgesander02/linebot_flask.git
+  repo: https://github.com/helgesander02/den_no_suke_LineBot.git
   plan: free
   autoDeploy: false
   buildCommand: pip install gunicorn -r requirements.txt
