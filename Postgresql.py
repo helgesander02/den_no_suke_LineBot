@@ -12,13 +12,18 @@ class database:
         cur = conn.cursor()
         cur.execute(f"SELECT ID, NAME, COUNT FROM DENNOSUKE WHERE ID='{self.uid}'")
         rows = cur.fetchall()
+        c=0
         if rows == []:
             cur.execute(f"INSERT INTO DENNOSUKE (ID, NAME, COUNT) \
                         VALUES ('{self.uid}','{self.user_name}', 1)");
-            return 1
+            c=1
             
         else:
             cur.execute(f"SELECT COUNT FROM DENNOSUKE WHERE ID='{self.uid}'")
             c = cur.fetchall()[0][0]
             cur.execute(f"UPDATE DENNOSUKE set COUNT = {c+1} where ID='{self.uid}'")
-            return c+1
+            c+=1
+            
+        conn.commit()
+        conn.close()
+        return c
