@@ -47,7 +47,7 @@ def handle_message(event):
         uid = profile.user_id # 發訊者ID
         
         myDatabase = database(user_name, uid)
-        v = database.add_food()
+        v = myDatabase.add_food()
         
         line_bot_api.reply_message(
             event.reply_token,
