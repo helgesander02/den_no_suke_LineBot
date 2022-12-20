@@ -46,7 +46,7 @@ def handle_message(event):
         user_name = profile.display_name #使用者名稱
         uid = profile.user_id # 發訊者ID
         
-        myDatabase = database()
+        myDatabase = database(user_name, uid)
         database.add_food()
         
         line_bot_api.reply_message(
