@@ -15,8 +15,10 @@ class database:
         if rows == []:
             cur.execute(f"INSERT INTO DENNOSUKE (ID, NAME, COUNT) \
                         VALUES ('{self.uid}','{self.user_name}', 1)");
+            return 1
+            
         else:
             cur.execute(f"SELECT COUNT FROM DENNOSUKE WHERE ID='{self.uid}'")
             c = cur.fetchall()[0][0]
             cur.execute(f"UPDATE DENNOSUKE set COUNT = {c+1} where ID='{self.uid}'")
-
+            return c+1
