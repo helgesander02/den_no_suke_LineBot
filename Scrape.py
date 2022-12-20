@@ -7,8 +7,15 @@ class scrape:
             "User-Agent": "Mozilla/5.0 (X11; Linux aarch64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.188 Safari/537.36 CrKey/1.54.250320"
           }
         
-    def scrape(self, search):
-        result = requests.get(url=f"https://feebee.com.tw/s/?q={search}", headers=self.headers)
+    def scrape(self):
+        goods_list = ["滑鼠", "鍵盤", "喇叭", "耳機", "麥克風", "電競椅", "辦公椅", "繪圖板", "office軟體",
+              "電競螢幕", "網路攝影機", "電腦機殼", "固態硬碟", "傳統硬碟", "顯示卡", "CPU", "主機板", "記憶體", "電源供應器",
+              "風扇", "外接硬碟", "電腦機殼", "UPS", "記憶卡", "隨身碟", "Nintendo Switch", "PlayStation 5", "Xbox", "手把控制器",
+              "羅技", "雷蛇", "HyperX", "路由器", "橋接器", "交換器", "光碟機", "華碩", "ROG", "曜越", "海盜船", "酷媽", "藍芽耳機",
+              "Turtle Beach", "鐵三角", "微星", "賽德斯", "威剛", "樹梅派", "Arduino", "ESP32"]
+        x = random.randrange(50)
+        user_input = goods_list[x]
+        result = requests.get(url=f"https://feebee.com.tw/s/?q={user_input}", headers=self.headers)
         soup = BeautifulSoup(result.text)
         
         options = soup.findAll("h3",class_="large")
