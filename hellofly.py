@@ -42,11 +42,12 @@ def callback():
 def handle_message(event):
     msg = str(event.message.text)
     if msg == "餵食電之助":
-        UserId = event.source.user_id
-        #profile = line_bot_api.get_profile(UserId)
+        profile = line_bot_api.get_profile(event.source.user_id)
+        user_name = profile.display_name #使用者名稱
+        uid = profile.user_id # 發訊者ID
         line_bot_api.reply_message(
             event.reply_token,
-            TextSendMessage(text=UserId))
+            TextSendMessage(text=user_name+uid))
         
     elif msg == "熱銷商品比價GO":
         goods_list = ["滑鼠", "鍵盤", "喇叭", "耳機", "麥克風", "電競椅", "辦公椅", "繪圖板", "office軟體",
