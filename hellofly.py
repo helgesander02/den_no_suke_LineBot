@@ -47,11 +47,11 @@ def handle_message(event):
         uid = profile.user_id # 發訊者ID
         
         myDatabase = database(user_name, uid)
-        database.add_food()
+        v = database.add_food()
         
         line_bot_api.reply_message(
             event.reply_token,
-            TextSendMessage(text=f"{user_name}餵食成功"))
+            TextSendMessage(text=f"{user_name}成功餵食{v}次"))
         
     elif msg == "熱銷商品比價GO":       
         myScrape = scrape()
