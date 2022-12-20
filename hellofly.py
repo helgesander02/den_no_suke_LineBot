@@ -42,7 +42,7 @@ def callback():
 def handle_message(event):
     msg = str(event.message.text)
     if msg == "餵食電之助":
-        name = line_bot_api.get_profile(str(event.source.userId))
+        name = line_bot_api.get_profile(event.source.userId)
         #x = random.randrange(100)
         line_bot_api.reply_message(
             event.reply_token,
