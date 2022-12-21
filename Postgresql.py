@@ -1,11 +1,11 @@
 import psycopg2
-
+import os
 
 class database:
     def __init__(self, user_name, uid):
         self.user_name = user_name
         self.uid = uid
-        self.Internal_Database_URL = "postgres://su:IqObEwxiLHJbo7aRzb8lyyOKiWBcVzfU@dpg-cegsd914rebaribgjg30-a.singapore-postgres.render.com/dennosuke_vsns"
+        self.Internal_Database_URL = os.getenv('Internal_Database_URL')
         
     def add_food(self):
         conn = psycopg2.connect(self.Internal_Database_URL)
