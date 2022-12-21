@@ -6,7 +6,7 @@ import os
 class scrape:
     def __init__(self):
         self.headers = {
-            "User-Agent": os.getenv('User-Agent')
+            "User-Agent": os.getenv('User_Agent')
           }
         
     def scrape(self):
