@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import random
+import os
 
 class scrape:
     def __init__(self):
