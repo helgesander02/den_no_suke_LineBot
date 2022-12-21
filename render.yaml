@@ -12,3 +12,7 @@ services:
     sync: false
   - key: LINE_CHANNEL_SECRET
     sync: false
+  - key: User-Agent
+    sync: false
+  - key: Internal_Database_URL
+    sync: false
