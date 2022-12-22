@@ -27,3 +27,20 @@ class database:
         conn.commit()
         conn.close()
         return c
+    
+    def add_food(self):
+        conn = psycopg2.connect(self.Internal_Database_URL)
+        cur = conn.cursor()
+        cur.execute("SELECT * FROM DENNOSUKE ORDER BY COUNT DESC LIMIT 3")
+        rows = cur.fetchall()
+        s=""
+        if rows == []:
+            s = "排行榜沒有善心人士"
+        else:
+            s = f"1.{rows[0][1]}餵食{rows[0][2]}次\n"
+            s += f"2.{rows[1][1]}餵食{rows[1][2]}次\n"
+            s += f"3.{rows[2][1]}餵食{rows[2][2]}次"
+            
+        conn.commit()
+        conn.close()
+        return s    
