@@ -28,7 +28,7 @@ class database:
         conn.close()
         return c
     
-    def add_food(self):
+    def select_top(self):
         conn = psycopg2.connect(self.Internal_Database_URL)
         cur = conn.cursor()
         cur.execute("SELECT * FROM DENNOSUKE ORDER BY COUNT DESC LIMIT 3")
