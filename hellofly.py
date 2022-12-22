@@ -118,8 +118,8 @@ def handle_message(event):
         )
         line_bot_api.reply_message(event.reply_token, carousel_template_message)
         
-    else:    
-        session_token = os.getenv('SESSION_TOKEN')
+    else:          
+        openai.api_key = os.getenv('SESSION_TOKEN')
         response = openai.Completion.create(
                 engine='text-davinci-003',
                 prompt=msg,
