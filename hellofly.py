@@ -130,7 +130,7 @@ def handle_message(event):
         
         line_bot_api.reply_message(
             event.reply_token,
-            TextSendMessage(text = completed_text))
+            TextSendMessage(text = completed_text[2:]))
         
 if __name__ == "__main__":
     app.run()
