@@ -16,3 +16,5 @@ services:
     sync: false
   - key: Internal_Database_URL
     sync: false
+  - key: SESSION_TOKEN
+    sync: false
